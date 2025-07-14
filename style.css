@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+#game-container {
+    position: relative;
+    border: 2px solid #fff;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    background-color: #1e1e1e;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+#score {
+    padding: 10px;
+    font-size: 1.5em;
+}
+
+#game-over {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    pointer-events: all;
+}
+
+#game-over h1 {
+    margin: 0 0 10px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#touch-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-sizing: border-box;
+    pointer-events: all;
+}
+
+#touch-controls button {
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 10px;
+    user-select: none; /* Prevent text selection on mobile */
+}
+
+.hidden {
+    display: none !important;
+}

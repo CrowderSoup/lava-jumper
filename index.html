@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Lava Jumper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-layer">
+            <div id="score">Score: 0</div>
+            <div id="game-over" class="hidden">
+                <h1>Game Over</h1>
+                <p>Your score: <span id="final-score">0</span></p>
+                <button id="restart-button">Restart</button>
+            </div>
+            <div id="touch-controls" class="hidden">
+                <button id="left-button">Left</button>
+                <button id="right-button">Right</button>
+                <button id="jump-button">Jump</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/game.js"></script>
+</body>
+</html>
