@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: gameHeight - 100 - (i * (platformMinYSpacing + 20)),
                 width: platformWidth,
                 height: platformHeight,
+                visited: false
             });
         }
         // Ensure there's a platform for the player to start on
@@ -151,6 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 playerVelY = 0;
                 playerY = platform.y - playerHeight;
                 onPlatform = true;
+
+                if (!platform.visited) {
+                    score++;
+                    platform.visited = true;
+                }
             }
         });
 
@@ -170,9 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cameraY = gameHeight / 2 - playerY;
         }
 
-        // Update score
-        score = Math.max(score, Math.floor(-playerY / 10));
-
         // Generate new platforms
         const topPlatformY = platforms[platforms.length - 1].y;
         if (topPlatformY > playerY - gameHeight) {
@@ -181,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: topPlatformY - (platformMinYSpacing + Math.random() * (platformMaxYSpacing - platformMinYSpacing)),
                 width: platformWidth,
                 height: platformHeight,
+                visited: false
             });
         }
 
@@ -189,6 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Lava movement
         lavaY -= lavaSpeed;
+        // Ensure lava is always at or above the bottom of the screen
+        lavaY = Math.min(lavaY, gameHeight - cameraY);
 
         // Update lava bubbles
         if (Math.random() < 0.2) {
@@ -207,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // Game over condition
-        if (playerY + playerHeight > lavaY - cameraY) {
+        if (playerY + playerHeight > lavaY) {
             isGameOver = true;
             finalScoreEl.textContent = score;
             gameOverEl.classList.remove('hidden');
