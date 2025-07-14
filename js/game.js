@@ -50,18 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function resizeCanvas() {
-        const aspectRatio = 9 / 16;
-        const newWidth = Math.min(window.innerWidth, window.innerHeight * aspectRatio);
-        const newHeight = window.innerHeight;
+        // The canvas element's size is now controlled by CSS.
+        // We need to set the canvas's internal resolution to match its displayed size.
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-        
         gameWidth = canvas.width;
         gameHeight = canvas.height;
-
-        document.getElementById('game-container').style.width = `${gameWidth}px`;
-        document.getElementById('game-container').style.height = `${gameHeight}px`;
 
         if (isTouchDevice()) {
             touchControls.classList.remove('hidden');
