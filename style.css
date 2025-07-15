@@ -7,20 +7,15 @@ html, body {
 }
 
 body {
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Arial', sans-serif;
+    color: #fff;
 }
 
 #game-container {
     position: relative;
-    border: 2px solid #fff;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-    aspect-ratio: 9 / 16;
-    max-height: 95vh;
-    max-width: 95vw;
 }
 
 canvas {
