@@ -1,6 +1,6 @@
 {
   "name": "Lava Jumper",
-  "short_name": "Jumper",
+  "short_name": "Lava Jumper",
   "version": "0.1",
   "manifest_version": 2,
   "start_url": "/lava-jumper/index.html",
