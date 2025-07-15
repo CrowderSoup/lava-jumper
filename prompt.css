@@ -1,0 +1,28 @@
+.prompt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+}
+
+.prompt-content {
+  max-width: 80%;
+}
+
+.prompt-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.prompt-content p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}

@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
+    const gameContainer = document.getElementById('game-container');
+    const desktopPrompt = document.getElementById('desktop-prompt');
+    const mobilePrompt = document.getElementById('mobile-prompt');
 
     const scoreEl = document.getElementById('score');
     const gameOverEl = document.getElementById('game-over');
@@ -48,6 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
         left: false,
         right: false,
     };
+
+    function checkDeviceAndDisplayMode() {
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (!isMobile) {
+            desktopPrompt.classList.remove('hidden');
+            gameContainer.classList.add('hidden');
+            return false;
+        }
+
+        if (!isStandalone) {
+            mobilePrompt.classList.remove('hidden');
+            gameContainer.classList.add('hidden');
+            return false;
+        }
+        
+        return true;
+    }
 
     function resizeCanvas() {
         // The canvas element's size is now controlled by CSS.
@@ -381,5 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
     jumpButton.addEventListener('touchstart', (e) => { e.preventDefault(); jump(); });
 
     // Initial setup
-    resizeCanvas();
+    if (checkDeviceAndDisplayMode()) {
+        resizeCanvas();
+    }
 });

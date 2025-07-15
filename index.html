@@ -8,6 +8,7 @@
     />
     <title>Lava Jumper</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="prompt.css" />
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icon.png">
   </head>
@@ -26,6 +27,19 @@
           <button id="right-button">→</button>
           <button id="jump-button">Jump</button>
         </div>
+      </div>
+    </div>
+    <div id="desktop-prompt" class="prompt-overlay hidden">
+      <div class="prompt-content">
+        <h1>Please open on a mobile device</h1>
+        <p>This game is designed for mobile.</p>
+      </div>
+    </div>
+    <div id="mobile-prompt" class="prompt-overlay hidden">
+      <div class="prompt-content">
+        <h1>Add to Home Screen</h1>
+        <p>For the best experience, please add this game to your home screen.</p>
+        <p>Tap the 'Share' button and then 'Add to Home Screen'.</p>
       </div>
     </div>
     <script src="js/game.js"></script>
